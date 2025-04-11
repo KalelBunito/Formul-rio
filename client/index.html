@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form class="form" method="POST">
+        <h1 class="title">Formulário</h1>
+        <input id="name-input" type="text" placeholder="Coloque seu nome">
+        <input id="email-input" type="email" placeholder="Digite seu email">
+        <textarea id="textarea-input" rows="5" cols="33"></textarea>
+        <button id="send-button">Enviar</button>
+        <p id="user-answer"></p>
+    </form>
+    <div class="search-user">
+        <h2>Atualizar Usuário</h2>
+        <p>Por favor, digite o ID do usuário para atualizar o nome, o email ou a mensagem enviada</p>
+        <input type="text" placeholder="Digite a ID do usuário" id="idBuscar">
+        <p id="resposta-api"></p>
+        <button id="search-button">Buscar usuário</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
