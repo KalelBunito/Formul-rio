@@ -47,9 +47,15 @@ app.put('/usuarios/:id', (req, res) => {
     const usuarioIndex = usuarios.findIndex(idUsuario)
 
     if (usuarioIndex !== -1) {
-        res.send(`Usuário encontrado no índice ${usuarioIndex}`)
+        usuarios[usuarioIndex].nome = novosDados.nome;
+        usuarios[usuarioIndex].email = novosDados.email;
+
+        res.json({
+            mensagem: "Usuário atualizado com sucesso",
+            usuario: usuarios[usuarioIndex]
+        });
     } else {
-        res.status(400).send("Usuário não encontrado")
+        res.status(404).json({ mensagem: "Usuário não encontrado" });
     }
 })
 app.listen(port, () => {
