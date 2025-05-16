@@ -1,0 +1,95 @@
+:root {
+    --primaria: #161F50;
+    --secundaria: #EBEDF7;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url('../assets/fundo2.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.search-user {
+    max-width: 500px;
+    gap: 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    width: 40%;
+
+}
+
+.user-title {
+    color: #EBEDF7;
+    display: flex;
+    line-height: 16px;
+}
+
+.user-input {
+    display: flex;
+    gap: 8px;
+}
+
+.user-input #search-button {
+    font-family: "Lato", sans-serif;
+    padding: 5px 12px;
+    border: none;
+    background-color: rgb(29, 19, 48);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.user-input #search-button:hover {
+    background-color: transparent;
+    transform: scale(1.2);
+}
+
+.user-input #idBuscar {
+    font-family: "Lato", sans-serif;
+    padding: 8px;
+    border-radius: 8px;
+    color: rgb(208, 208, 208);
+    width: 250px;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    border-bottom: 1px solid rgba(255, 255, 255)
+}
+
+.user-input #idBuscar:focus {
+    outline: none;
+}
+
+#resposta-api {
+    color: white;
+    /* ou qualquer outra cor visível no fundo */
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+.api {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    gap: 16px;
+    height: 50px;
+}
+
+#botao-editar {}
+
+/* estilizar o titulo, a input, o botao, tamanho do titulo, e o paragrafo de resposta-api /*

@@ -15,32 +15,43 @@ app.use(express.json());
 
 let usuarios = [];
 
-app.get('/usuarios', (req, res)=>{
+app.get('/usuarios', (req, res) => {
     res.json(usuarios)
 });
 
 // req(requisiçao)
 // res(resposta)
-app.post('/usuarios', (req, res)=>{
+app.post('/usuarios', (req, res) => {
     const novoUsuario = req.body;
     console.log("Usuario recebido", novoUsuario);
 
     novoUsuario.id = usuarios.length + 1;
     usuarios.push(novoUsuario);
 
-    res.status(201).json({mensagem: 'Usuário criado com sucesso'})
+    res.status(201).json({ mensagem: 'Usuário criado com sucesso' })
 })
 
-app.get('/usuarios/:id', (req,res)=>{
-    const {id} = req.params;
+app.get('/usuarios/:id', (req, res) => {
+    const { id } = req.params;
     const usuario = usuarios.find(u => u.id == id);
 
-    if(usuario){
+    if (usuario) {
         res.json(usuario)
     }
 
 });
 
-app.listen(port, ()=>{
+app.put('/usuarios/:id', (req, res) => {
+    const id = req.params;
+    const idUsuario = element => element == id;
+    const usuarioIndex = usuarios.findIndex(idUsuario)
+
+    if (usuarioIndex !== -1) {
+        res.send(`Usuário encontrado no índice ${usuarioIndex}`)
+    } else {
+        res.status(400).send("Usuário não encontrado")
+    }
+})
+app.listen(port, () => {
     console.log(`Servidor rodando na porta: ${port}`)
 });

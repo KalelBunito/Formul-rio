@@ -28,23 +28,3 @@ formulario.addEventListener("submit", async function(e) {
         console.error("Erro ao enviar os dados:", error);
     }
 });
-
-let botaoBuscar = document.getElementById('search-button');
-
-botaoBuscar.addEventListener('click', async () => {
-    const id = document.getElementById('idBuscar').value;
-
-    try{
-        const response = await fetch(`http://localhost:3000/usuarios/${id}`);
-        const usuario = await response.json();
-
-        if(usuario.id){
-            document.getElementById('resposta-api').innerText = `Usuário encontrado: ${usuario.nome}, email: ${usuario.email}`
-        }else{
-            document.getElementById('resposta-api').innerText = 'Usuário não encontrado'
-        }
-
-    }catch(error){
-        console.error("erro ao acessar o back end", error);
-    }
-})
