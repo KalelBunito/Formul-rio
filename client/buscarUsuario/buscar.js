@@ -1,4 +1,3 @@
-
 let botaoBuscar = document.getElementById('search-button');
 let caixaButton = document.querySelector('.api')
 let containerResposta = document.querySelector('.api');
@@ -8,10 +7,14 @@ botaoBuscar.addEventListener('click', async () => {
 
     try {
         const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+
+         // adicionar o pedaço do código aqui
+
+         
         const usuario = await response.json();
 
         if (usuario.id) {
-            document.getElementById('resposta-api').innertText = `Usuário encontrado: ${usuario.nome}, email: ${usuario.email}`
+            document.getElementById('resposta-api').innerText = `Usuário encontrado: ${usuario.nome}, email: ${usuario.email}`
 
             if (!document.getElementById('input-nome')) {
                 const inputNome = document.createElement('input')

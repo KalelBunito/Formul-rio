@@ -36,28 +36,35 @@ app.get('/usuarios/:id', (req, res) => {
     const usuario = usuarios.find(u => u.id == id);
 
     if (usuario) {
-        res.json(usuario)
-    }
-
-});
-
-app.put('/usuarios/:id', (req, res) => {
-    const id = req.params;
-    const idUsuario = element => element == id;
-    const usuarioIndex = usuarios.findIndex(idUsuario)
-
-    if (usuarioIndex !== -1) {
-        usuarios[usuarioIndex].nome = novosDados.nome;
-        usuarios[usuarioIndex].email = novosDados.email;
-
-        res.json({
-            mensagem: "Usuário atualizado com sucesso",
-            usuario: usuarios[usuarioIndex]
-        });
+        res.json(usuario);
     } else {
         res.status(404).json({ mensagem: "Usuário não encontrado" });
     }
-})
+});
+
+
+app.put('/usuarios/:id', (req, res) => {
+  const { id } = req.params;
+  const novosDados = req.body;
+
+  console.log(`Recebido PUT para ID: ${id}`);
+  console.log(`Novos dados: `, novosDados);
+
+  const usuarioIndex = usuarios.findIndex(u => u.id === Number(id));
+
+  if (usuarioIndex !== -1) {
+    usuarios[usuarioIndex].nome = novosDados.nome;
+    usuarios[usuarioIndex].email = novosDados.email;
+
+    res.json({
+      mensagem: "Usuário atualizado com sucesso",
+      usuario: usuarios[usuarioIndex]
+    });
+  } else {
+    res.status(404).json({ mensagem: "Usuário não encontrado" });
+  }
+});
+
 app.listen(port, () => {
     console.log(`Servidor rodando na porta: ${port}`)
 });
